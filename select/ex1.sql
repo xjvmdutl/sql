@@ -20,6 +20,18 @@ where gender='M';
 select count(*) as 여직원 
 from employees
 where gender='F';
+
+select sum(case when gender = 'm' then 1 else 0 end) as 남직원,
+	   sum(case when gender = 'f' then 1 else 0 end) as 여직원
+  from employees;
+  
+select *
+from (select count(*) as 여직원
+	  from employees
+      where gender = 'f') ,
+      (select count(*) as 남직원
+	  from employees
+      where gender = 'm') ;
 -- 문제4.
 -- 현재 근무하고 있는 직원 수는 몇 명입니까? (salaries 테이블을 사용합니다.)
 select count(*)
