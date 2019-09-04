@@ -98,10 +98,8 @@ select 	avg(s.salary) as '평균연봉',
 		d.dept_name as '부서'
 from 	dept_emp de,
 		departments d,
-        employees e,
         salaries s
-where	e.emp_no=de.emp_no
-	and	e.emp_no=s.emp_no
+where	de.emp_no=s.emp_no
 	and de.dept_no=d.dept_no
     and s.to_date='9999-01-01'
 group by d.dept_name
